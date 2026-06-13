@@ -1,0 +1,19 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Playwright MCP
+.playwright-mcp/
+
+# Dev tools
+*.py
+__pycache__/
+
+# Editor
+.vscode/
+.idea/
+
+# Build artifacts
+*.crx
+*.pem
+*.zip

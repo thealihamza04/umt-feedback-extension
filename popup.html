@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UMT Feedback Auto-Submitter</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="header">
+    <div class="header-logo">UMT</div>
+    <div>
+      <div class="header-title">Feedback Auto-Submitter</div>
+      <div class="header-sub">online.umt.edu.pk &nbsp;·&nbsp; <span id="extVersion"></span></div>
+    </div>
+  </div>
+
+  <!-- Status Banner -->
+  <div id="statusBanner" class="status-banner hidden"></div>
+
+  <!-- Tabs -->
+  <div class="tabs">
+    <button class="tab active" data-tab="run">Run</button>
+    <button class="tab" data-tab="settings">Settings</button>
+  </div>
+
+  <!-- Run Tab -->
+  <div id="tab-run" class="tab-content active">
+    <div class="section">
+      <div class="section-title">Page</div>
+      <div id="pageStatus" class="page-status">Detecting…</div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Actions</div>
+      <button id="btnFillSubmit" class="btn btn-primary">Fill &amp; Submit All Forms</button>
+      <button id="btnFillOnly" class="btn btn-secondary">Fill Only (review before submitting)</button>
+      <button id="btnStop" class="btn btn-danger" disabled>Stop</button>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Log</div>
+      <div id="logBox" class="log-box">Waiting…</div>
+    </div>
+  </div>
+
+  <!-- Settings Tab -->
+  <div id="tab-settings" class="tab-content hidden">
+    <div class="section">
+      <div class="section-title">Rating Preference</div>
+      <label class="field-label">Default rating to select</label>
+      <select id="ratingPosition" class="field-input">
+        <option value="random-high">Random (Mostly Agree/Excellent) — recommended</option>
+        <option value="last">Always Highest / Excellent</option>
+        <option value="random">Random (any option, fully varied)</option>
+        <option value="mid">Always Middle / Average</option>
+        <option value="first">Always Lowest / Poor</option>
+      </select>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Comments (optional)</div>
+      <label class="field-label">Best features of the course</label>
+      <textarea id="commentLike" class="field-input" rows="2" placeholder="e.g. Course content was well structured and effectively delivered."></textarea>
+      <label class="field-label" style="margin-top:10px;">How the course could be improved</label>
+      <textarea id="commentDislike" class="field-input" rows="2" placeholder="e.g. Course was well managed with no significant issues."></textarea>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Behaviour</div>
+      <label class="toggle-row">
+        <span>Auto-run when feedback page loads</span>
+        <label class="switch">
+          <input type="checkbox" id="autoRun" />
+          <span class="slider"></span>
+        </label>
+      </label>
+      <label class="toggle-row">
+        <span>Auto-submit forms</span>
+        <label class="switch">
+          <input type="checkbox" id="autoSubmit" />
+          <span class="slider"></span>
+        </label>
+      </label>
+    </div>
+
+    <button id="btnSaveSettings" class="btn btn-primary">Save Settings</button>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

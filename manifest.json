@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "UMT Feedback Auto-Submitter",
+  "version": "1.2.0",
+  "description": "Automatically fills and submits Student Feedback forms on UMT Online Portal",
+  "permissions": ["storage", "activeTab", "scripting", "tabs"],
+  "host_permissions": ["https://online.umt.edu.pk/*"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://online.umt.edu.pk/StudentFeedback",
+        "https://online.umt.edu.pk/StudentFeedback/",
+        "https://online.umt.edu.pk/StudentFeedback/Addfeedback/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
